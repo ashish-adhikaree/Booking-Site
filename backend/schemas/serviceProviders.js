@@ -6,7 +6,11 @@ const serviceProvidersSchema = new Schema({
     type: String,
     required: true,
   },
-  location: {
+  city: {
+    type: String,
+    required: true,
+  },
+  address: {
     type: String,
     required: true,
   },
@@ -14,14 +18,20 @@ const serviceProvidersSchema = new Schema({
     type: String,
     required: true,
   },
-  images:[string],
+  images: [String],
   activities: {
     type: [String],
     required: true,
   },
-  rating : Number,
-
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5,
+  },
+  openDays: {
+    type: [String],
+    required: true,
+  },
 });
 
-mongoose.model("Service Providers", serviceProvidersSchema)
-
+export default mongoose.model("ServiceProviders", serviceProvidersSchema);
