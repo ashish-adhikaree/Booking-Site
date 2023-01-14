@@ -17,7 +17,6 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    required: true,
     default: "user",
   },
   address: {
@@ -35,10 +34,19 @@ const userSchema = new Schema({
   profilepic: {
     type: String,
   },
+  favouriteProviders: {
+    type: [String],
+  },
   savedActivities: {
     type: [String],
   },
+  savedPackages: {
+    type: [String],
+  },
   bookedActivities: {
+    type: [String],
+  },
+  bookedPackages: {
     type: [String],
   },
 });

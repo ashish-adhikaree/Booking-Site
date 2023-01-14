@@ -23,14 +23,24 @@ const serviceProviderSchema = new Schema({
     type: [String],
     required: true,
   },
+  packages: {
+    type: [String],
+  },
   rating: {
     type: Number,
     min: 0,
     max: 5,
   },
-  openDays: {
+  reviews: {
     type: [String],
-    required: true,
+  },
+  closeDays: {
+    type: [String],
+    default: 0,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
   },
 });
 

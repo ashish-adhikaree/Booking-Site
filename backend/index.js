@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import userRouter from "./routes/users.js";
 import serviceProvidersRouter from "./routes/serviceProviders.js";
 import authRouter from "./routes/auth.js";
+import activitiesRouter from "./routes/activities.js";
 
 const app = express();
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/providers", serviceProvidersRouter);
 app.use("/auth", authRouter);
+app.use("/activities", activitiesRouter);
 
 // Error Handling
 app.use((err, req, res, next) => {
@@ -33,7 +35,7 @@ app.use((err, req, res, next) => {
   return res.status(errorStatus).json({
     success: false,
     status: errorStatus,
-    message: errorMessage
+    message: errorMessage,
   });
 });
 
