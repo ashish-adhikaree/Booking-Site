@@ -1,8 +1,8 @@
-import ServiceProviders from "../schemas/serviceProviders.js";
+import ServiceProvider from "../models/serviceProvider.js";
 
 // CREATE
 export const createServiceProvider = async (req, res, next) => {
-  const newServiceProvider = new ServiceProviders(req.body);
+  const newServiceProvider = new ServiceProvider(req.body);
   try {
     const savedServiceProvider = await newServiceProvider.save();
     res.status(200).json(savedServiceProvider);
@@ -14,7 +14,7 @@ export const createServiceProvider = async (req, res, next) => {
 // GET ONE
 export const getServiceProvider = async (req, res, next) => {
   try {
-    const serviceProviders = await ServiceProviders.findById(req.params.id);
+    const serviceProviders = await ServiceProvider.findById(req.params.id);
     res.status(200).json(serviceProviders);
   } catch (err) {
     next(err);
@@ -24,7 +24,7 @@ export const getServiceProvider = async (req, res, next) => {
 // GET ALL
 export const getAllServiceProviders = async (req, res, next) => {
   try {
-    const serviceProviders = await ServiceProviders.find();
+    const serviceProviders = await ServiceProvider.find();
     res.status(200).json(serviceProviders);
   } catch (err) {
     next(err);
@@ -32,9 +32,9 @@ export const getAllServiceProviders = async (req, res, next) => {
 };
 
 // DELETE
-export const deleteServiceProviders = async (req, res, next) => {
+export const deleteServiceProvider = async (req, res, next) => {
   try {
-    const serviceProviders = await ServiceProviders.findByIdAndDelete(
+    const serviceProviders = await ServiceProvider.findByIdAndDelete(
       req.params.id
     );
     res.status(200).json(serviceProviders);
@@ -46,7 +46,7 @@ export const deleteServiceProviders = async (req, res, next) => {
 // UPDATE
 export const updateServiceProvider = async (req, res, next) => {
   try {
-    const serviceProviders = await ServiceProviders.findByIdAndUpdate(
+    const serviceProviders = await ServiceProvider.findByIdAndUpdate(
       req.params.id,
       { $set: req.body },
       { new: true }

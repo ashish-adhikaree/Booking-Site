@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const serviceProvidersSchema = new Schema({
+const serviceProviderSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -34,4 +34,4 @@ const serviceProvidersSchema = new Schema({
   },
 });
 
-export default mongoose.model("ServiceProviders", serviceProvidersSchema);
+export default mongoose.model("ServiceProvider", serviceProviderSchema);

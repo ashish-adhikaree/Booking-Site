@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   createServiceProvider,
-  deleteServiceProviders,
+  deleteServiceProvider,
   getAllServiceProviders,
   updateServiceProvider,
   getServiceProvider,
@@ -10,28 +10,18 @@ import {
 const router = Router();
 
 //CREATE
-router.post("/", (req, res, next) => {
-  createServiceProvider(req, res, next);
-});
+router.post("/", createServiceProvider);
 
 //UPDATE
-router.put("/update/:id", (req, res, next) => {
-  updateServiceProvider(req, res, next);
-});
+router.put("/update/:id", updateServiceProvider);
 
 //GETONE
-router.get("/findOne/:id", (req, res, next) => {
-  getServiceProvider(req, res, next);
-});
+router.get("/findOne/:id", getServiceProvider);
 
 //GETALL
-router.get("/", (req, res, next) => {
-  getAllServiceProviders(req, res, next);
-});
+router.get("/", getAllServiceProviders);
 
 //DELETE
-router.delete("/delete/:id", (req, res, next) => {
-  deleteServiceProviders(req, res, next);
-});
+router.delete("/delete/:id", deleteServiceProvider);
 
 export default router;
