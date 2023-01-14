@@ -1,10 +1,22 @@
 import { Router } from "express";
+import {
+  updateUser,
+  deleteUser,
+  getUser,
+  getAllUsers,
+} from "../controllers/users";
+const router = Router();
 
-const router = Router()
+//UPDATE
+router.put("/update/:id", updateUser);
 
-router.get("/",(req,res)=>{
-    res.send("Hello")
-})
+//DELETE
+router.delete("/delete/:id", deleteUser);
 
+//GET ONE
+router.get("/findOne/:id", getUser);
 
-export default router
+//GET ALL
+router.get("/", getAllUsers);
+
+export default router;

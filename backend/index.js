@@ -5,6 +5,9 @@ import userRouter from "./routes/users.js";
 import serviceProvidersRouter from "./routes/serviceProviders.js";
 import authRouter from "./routes/auth.js";
 import activitiesRouter from "./routes/activities.js";
+import packagesRouter from "./routes/packages.js";
+
+
 
 const app = express();
 dotenv.config();
@@ -27,6 +30,7 @@ app.use("/users", userRouter);
 app.use("/providers", serviceProvidersRouter);
 app.use("/auth", authRouter);
 app.use("/activities", activitiesRouter);
+app.use("/packages", packagesRouter);
 
 // Error Handling
 app.use((err, req, res, next) => {

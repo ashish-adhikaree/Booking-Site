@@ -18,6 +18,10 @@ const activitySchema = new Schema({
     type: String,
     required: true,
   },
+  features: {
+    type: String,
+    required: true,
+  },
   images: {
     type: [String],
   },

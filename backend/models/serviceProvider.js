@@ -18,6 +18,10 @@ const serviceProviderSchema = new Schema({
     type: String,
     required: true,
   },
+  features: {
+    type: String,
+    required: true,
+  },
   images: [String],
   activities: {
     type: [String],
