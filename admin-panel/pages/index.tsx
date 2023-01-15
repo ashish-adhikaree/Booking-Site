@@ -1,5 +1,5 @@
-import Head from 'next/head'
-
+import Layout from "@/components/layout";
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -9,6 +9,9 @@ export default function Home() {
         <meta name="description" content="Developed by Ashish Adhikari" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Layout>
+        <p>Home Page FR</p>
+      </Layout>
     </>
-  )
+  );
 }
