@@ -30,6 +30,15 @@ const serviceProviderSchema = new Schema({
   packages: {
     type: [String],
   },
+  advertisements: {
+    type: [String],
+  },
+  promoCodes: {
+    type: [String],
+  },
+  bookings: {
+    type: [String]
+  },
   rating: {
     type: Number,
     min: 0,
