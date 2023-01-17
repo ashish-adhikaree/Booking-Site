@@ -12,6 +12,19 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
+    role: {
+      type: String,
+      enum: ["seller", "user", "shopMember"],
+      default: "user",
+      required: true,
+    },
+    shop: {
+      type: String,
+      required: function () {
+        if (this.role === "user") return false;
+        return true;
+      },
+    },
     password: {
       type: String,
       required: true,

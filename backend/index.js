@@ -1,13 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
+
+// Routes 
 import userRouter from "./routes/users.js";
-import serviceProvidersRouter from "./routes/serviceProviders.js";
+import shopsRouter from "./routes/shops.js";
 import authRouter from "./routes/auth.js";
 import activitiesRouter from "./routes/activities.js";
 import packagesRouter from "./routes/packages.js";
-
-
+import promoCodesRouter from "./routes/promoCodes.js";
 
 const app = express();
 dotenv.config();
@@ -23,14 +25,16 @@ const connectDB = async () => {
 };
 
 //Middleware//
+app.use(cookieParser())
 app.use(express.json());
 
 //Routes
 app.use("/users", userRouter);
-app.use("/providers", serviceProvidersRouter);
+app.use("/shops", shopsRouter);
 app.use("/auth", authRouter);
 app.use("/activities", activitiesRouter);
 app.use("/packages", packagesRouter);
+app.use("/promocodes", promoCodesRouter);
 
 // Error Handling
 app.use((err, req, res, next) => {

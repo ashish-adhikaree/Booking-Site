@@ -19,11 +19,12 @@ const bookingSchema = new Schema(
       type: Number,
     },
     status: {
-      type: "pending" | "cancelled" | "booked" | "served",
+      type: String,
+      enum: ["pending", "cancelled", "booked", "served"],
       required: true,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.Model("Booking", bookingSchema);
+export default mongoose.model("Booking", bookingSchema);

@@ -8,7 +8,7 @@ export const updateUser = async (req, res, next) => {
       { $set: req.body },
       { new: true }
     );
-    const { password, email, ...otherDetails } = updatedUser;
+    const { password, email, ...otherDetails } = updatedUser._doc;
     res.status(200).json(otherDetails);
   } catch (err) {
     next(err);
@@ -19,7 +19,7 @@ export const updateUser = async (req, res, next) => {
 export const deleteUser = async (req, res, next) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
-    const { password, email, ...otherDetails } = updatedUser;
+    const { password, email, ...otherDetails } = deletedUser._doc;
     res.status(200).json(otherDetails);
   } catch (err) {
     next(err);
@@ -30,7 +30,7 @@ export const deleteUser = async (req, res, next) => {
 export const getUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
-    const { password, email, ...otherDetails } = user;
+    const { password, email, ...otherDetails } = user._doc;
     res.status(200).json(otherDetails);
   } catch (err) {
     next(err);
@@ -38,13 +38,13 @@ export const getUser = async (req, res, next) => {
 };
 
 //GET ALL
-export const getAllUsers = async (req, res, next) => {
-  try {
-    const users = await User.find();
-    const { password, email, ...otherDetails } = users;
-    console.log(otherDetails)
-    res.status(200).json({...otherDetails});
-  } catch (err) {
-    next(err);
-  }
-};
+// export const getAllUsers = async (req, res, next) => {
+//   try {
+//     const users = await User.find();
+//     console.log(users)
+//     const { password, email, ...otherDetails } = users;
+//     res.status(200).json(otherDetails);
+//   } catch (err) {
+//     next(err);
+//   }
+// };

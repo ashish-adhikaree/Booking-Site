@@ -3,20 +3,21 @@ import {
   updateUser,
   deleteUser,
   getUser,
-  getAllUsers,
+  // getAllUsers,
 } from "../controllers/users.js";
+import { verifyUser } from "../utils/verifyToken.js";
 const router = Router();
 
 //UPDATE
 router.put("/update/:id", updateUser);
 
 //DELETE
-router.delete("/delete/:id", deleteUser);
+router.delete("/delete/:id", verifyUser, deleteUser);
 
 //GET ONE
 router.get("/findOne/:id", getUser);
 
 //GET ALL
-router.get("/", getAllUsers);
+// router.get("/", getAllUsers);
 
 export default router;

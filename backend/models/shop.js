@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const serviceProviderSchema = new Schema(
+const shopSchema = new Schema(
   {
     name: {
       type: String,
@@ -24,6 +24,10 @@ const serviceProviderSchema = new Schema(
       required: true,
     },
     images: [String],
+    owner: {
+      type: String,
+      required: true,
+    },
     activities: {
       type: [String],
       required: true,
@@ -63,4 +67,4 @@ const serviceProviderSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("ServiceProvider", serviceProviderSchema);
+export default mongoose.model("Shop", shopSchema);

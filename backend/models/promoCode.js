@@ -7,7 +7,8 @@ const promoCodeSchema = new Schema({
     required: true,
   },
   discountType: {
-    type: "flat" | "percent",
+    type: String,
+    enum: ["flat", "percent"],
     required: true,
   },
   discountAmount: {
@@ -18,14 +19,24 @@ const promoCodeSchema = new Schema({
     type: String,
     required: true,
   },
-  validServices: {
+  activities: {
     type: [String],
+  },
+  packages: {
+    type: [String],
+  },
+  noOfServices: {
+    type: Number,
+    required: true,
+  },
+  provider: {
+    type: String,
     required: true,
   },
   author: {
     type: String,
-    required: true
-  }
-});
+    required: true,
+  },
+},{timestamps: true});
 
-export default mongoose.Model("PromoCode", promoCodeSchema)
+export default mongoose.model("PromoCode", promoCodeSchema);
