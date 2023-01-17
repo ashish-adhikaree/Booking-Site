@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const userSchema = new Schema(
+const memberSchema = new Schema(
   {
     username: {
       type: String,
@@ -24,33 +24,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    country: {
-      type: String,
-      required: true,
-    },
     profilepic: {
-      type: String,
-    },
-    favouriteProviders: {
-      type: [String],
-    },
-    savedActivities: {
-      type: [String],
-    },
-    savedPackages: {
-      type: [String],
-    },
-    bookedActivities: {
-      type: [String],
-    },
-    bookedPackages: {
-      type: [String],
-    },
-    cart: {
       type: String,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model("TeamMember", teamSchema);

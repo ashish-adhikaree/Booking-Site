@@ -19,7 +19,7 @@ export const updateActivity = async (req, res, next) => {
       { $set: req.body },
       { new: true }
     );
-    res.status(200).json(updateActivity);
+    res.status(200).json(updatedActivity);
   } catch (err) {
     next(err);
   }

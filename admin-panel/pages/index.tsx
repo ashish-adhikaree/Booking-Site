@@ -1,3 +1,4 @@
+import Dashboard from "@/components/dashboard";
 import Layout from "@/components/layout";
 import Head from "next/head";
 
@@ -10,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <p>Home Page FR</p>
+        <Dashboard />
       </Layout>
     </>
   );

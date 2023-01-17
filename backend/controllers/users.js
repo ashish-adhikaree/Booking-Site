@@ -1,4 +1,4 @@
-import User from "../models/user";
+import User from "../models/user.js";
 
 //UPDATE
 export const updateUser = async (req, res, next) => {
@@ -42,7 +42,8 @@ export const getAllUsers = async (req, res, next) => {
   try {
     const users = await User.find();
     const { password, email, ...otherDetails } = users;
-    res.status(200).json(otherDetails);
+    console.log(otherDetails)
+    res.status(200).json({...otherDetails});
   } catch (err) {
     next(err);
   }

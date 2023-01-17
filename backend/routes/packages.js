@@ -5,7 +5,7 @@ import {
   deletePackage,
   getPackage,
   getAllPackages,
-} from "../controllers/packages";
+} from "../controllers/packages.js";
 
 const router = Router();
 

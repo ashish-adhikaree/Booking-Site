@@ -19,7 +19,7 @@ export const updatePackage = async (req, res, next) => {
       { $set: req.body },
       { new: true }
     );
-    res.status(200).json(updatePackage);
+    res.status(200).json(updatedPackage);
   } catch (err) {
     next(err);
   }
@@ -38,8 +38,8 @@ export const deletePackage = async (req, res, next) => {
 //GET ONE
 export const getPackage = async (req, res, next) => {
   try {
-    const Package = await Package.findById(req.params.id);
-    res.status(200).json(Package);
+    const receivedPackage = await Package.findById(req.params.id);
+    res.status(200).json(receivedPackage);
   } catch (err) {
     next(err);
   }
@@ -48,8 +48,8 @@ export const getPackage = async (req, res, next) => {
 //GET ALL
 export const getAllPackages = async (req, res, next) => {
   try {
-    const activities = await Package.find();
-    res.status(200).json(activities);
+    const receivedPackages = await Package.find();
+    res.status(200).json(receivedPackages);
   } catch (err) {
     next(err);
   }

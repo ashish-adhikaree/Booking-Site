@@ -6,4 +6,11 @@
   .alert-bubble {
     @apply text-white absolute top-[-5px] right-[-5px] bg-red-500 rounded-full h-4 w-4 flex items-center justify-center text-xs;
   }
+  .dashboard-section{
+    @apply w-full border bg-white p-3 rounded-xl
+  }
+  .dashboard-section-header{
+    @apply uppercase font-bold text-customBlack py-3
+  }
 }
+
