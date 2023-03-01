@@ -3,7 +3,7 @@ import { createError } from "./error.js";
 
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.access_token;
-  if (!token) return next(createError(401, "You are not authorized"));
+  if (!token) return next(createError(401, "You are not authenticated"));
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) return next(createError(403, "Invalid access_token"));
     req.user = user;
@@ -17,12 +17,14 @@ export const verifyUser = (req, res, next) => {
       next();
     } else {
       return next(
-        createError(401, "You don't have permission to delete the user")
+        createError(401, "You are not authorised")
       );
     }
   });
 };
 
 export const verifySeller = (req, res, next) => {
-  verifyToken(req, res, next, () => {});
+  verifyToken(req, res, () => {
+    
+  });
 };

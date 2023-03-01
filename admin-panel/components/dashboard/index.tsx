@@ -1,6 +1,8 @@
 import BookingsTable from "./bookingsTable";
 import RevenueChart from "./revenueChart";
 import Summary from "./summary";
+import dynamic from "next/dynamic";
+
 
 export default function Dashboard() {
   return (
